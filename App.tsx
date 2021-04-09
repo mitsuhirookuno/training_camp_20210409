@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, SafeAreaView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import Game from './components/Game'
+import MineSweeper from './components/MineSweeper'
 import { Ionicons } from '@expo/vector-icons'
 
 export default function App() {
@@ -10,6 +11,7 @@ export default function App() {
       <Ionicons name='md-beer-outline' style={styles.iconIcons} size={64}/>
       <Text>合宿の課題＠奥野</Text>
       <Game />
+      <MineSweeper />
       <StatusBar style='light' />
     </SafeAreaView>
   )

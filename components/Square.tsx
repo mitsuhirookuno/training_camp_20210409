@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons, Entypo } from '@expo/vector-icons'
 
 type SquareValue = 'X' | '0' | null
 
@@ -20,20 +20,19 @@ const Square = (props: Props) => {
             return <Ionicons name='md-happy-sharp' size={32} />
         }
         else {
-            return <Ionicons name='ios-scan-outline' size={12} />
+            return <Entypo name='stopwatch' size={12} />
         }
     }
 
     return (
-        <TouchableOpacity style={styles.container} onPress={onPress}>
-            <Text style={styles.text}>{value}</Text>
+        <TouchableOpacity style={styles.touchableOpacity} onPress={onPress}>
             {renderIcon(value)}
         </TouchableOpacity>
     )
 };
 
 const styles = StyleSheet.create({
-    container: {
+    touchableOpacity: {
         width: 80,
         height: 80,
         borderWidth: 1,
