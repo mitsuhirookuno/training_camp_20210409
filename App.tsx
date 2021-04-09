@@ -1,17 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
-import Game from './components/Game'
+import { StatusBar } from 'expo-status-bar';
+import Game from './components/Game';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.root}>
       <Text>合宿の課題＠奥野</Text>
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
       <Game />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   root: {
