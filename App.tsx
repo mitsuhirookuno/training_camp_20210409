@@ -1,26 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Game from './components/Game';
+import React from 'react'
+import { StyleSheet, Text, SafeAreaView } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
+import Game from './components/Game'
+import { Ionicons } from '@expo/vector-icons'
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.root}>
+    <SafeAreaView style={styles.safeAreaView}>
+      <Ionicons name='md-beer-outline' style={styles.iconIcons} size={64}/>
       <Text>合宿の課題＠奥野</Text>
-      <StatusBar style='auto' />
       <Game />
+      <StatusBar style='light' />
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1
-  },
-  container: {
+  safeAreaView: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+  iconIcons: {
+    // size: 64,
+    color: 'yellow'
+  }
+})
