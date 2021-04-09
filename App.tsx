@@ -1,17 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import Game from './components/Game'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <SafeAreaView style={styles.root}>
+      <Text>合宿の課題＠奥野</Text>
       <StatusBar style="auto" />
-    </View>
+      <Game />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
