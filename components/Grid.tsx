@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native'
-import { FontAwesome5, Entypo } from '@expo/vector-icons'
+import { FontAwesome5, Entypo, AntDesign, FontAwesome } from '@expo/vector-icons'
 
 type Opend = true | false
 type IsBomb = true | false
@@ -15,15 +15,15 @@ const Grid = (props: Props) => {
     const { opened, isBomb, onPress } = props
 
     const renderIcon = (_opend: Opend) => {
-        if(!_opend) {
-            return <Entypo name='stopwatch' size={12} />
+        if(false == _opend) {
+            return <FontAwesome5 name='question-circle' size={32} />
         }
         else {
             if(isBomb) {
-                return <FontAwesome5 name='question-circle' size={32} />
+                return <FontAwesome name='bomb' size={32} />
             }
             else {
-                return <FontAwesome5 name='rocket' size={32} />
+                return <AntDesign name='Safety' size={32} />
             }
         }
     }

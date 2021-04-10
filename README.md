@@ -40,7 +40,6 @@ yarn web
 https://oblador.github.io/react-native-vector-icons/
 
 
-
 # トラブル編
 
 ## mac / ipad / 保険証を忘れた
@@ -63,7 +62,25 @@ https://forums.expo.io/t/expo-with-wsl2-over-lan/38817/3
 [実機] <=={LAN}==> [Windows [WSL2(ubuntu)] ]
 ```
 
+```
+[実機] 『トンネル』 <<----ngrok--->>  『トンネル』WSL2(ubuntu)] ]
+```
+
 # まとめ
+
+## 出来た事
+
+- [x] Windows(WSL2) での開発
+- [x] ReactNative&TypeScriptでのハローワールド
+- [x] React & ES6? の３目並べを写経（要所書き換え）
+- [x] マインスイーパーのとっかかり作成
+
+## 出来なかった事
+
+- [ ] トスラブトンネル問題の解決
+- [ ] マインスイーパーの完成
+
+## 反省
 
 - やっぱりMacは便利、高速道路に乗っている感はある
   - 反面Winの反撃は近そう、10万ちょいのPCでも俊敏に動く。WSL2快適。両方使ってもいいかも！

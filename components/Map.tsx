@@ -2,14 +2,20 @@ import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native'
 import Grid from './Grid'
 
+type GridProps = {
+    isBomb: boolean,
+    isOpend: boolean
+}
+
 type Grids = {
-    bombs: boolean[][]
+    bombs: GridProps[][]
 }
 
 const Map = () => {
 
-    const randomBool = () => {
-        return ((Math.floor( Math.random() * 2 ) + 1) == 2) ? true:false
+    const randomBool = (): GridProps => {
+        const bomb = ((Math.floor( Math.random() * 2 ) + 1) == 2) ? true:false
+        return {isBomb: bomb, isOpend: false}
     }
 
     const initialGrids: Grids = {
@@ -25,37 +31,33 @@ const Map = () => {
 
     const [grids, setGrids] = useState(initialGrids)
 
-
     const handlePress = useCallback(
-        (i: number) => {
-        }, []
+        (y: number, x: number) => {
+            grids.bombs[y][x].isOpend = true
+            setGrids({bombs: grids.bombs})
+        }, [grids]
     )
 
     const renderGrid = (y: number, x: number) => {
-        return <Grid opened={false} isBomb={false} onPress={() => handlePress(1)}/>
+        return <Grid key={(y*6) + x} opened={false} isBomb={false} onPress={() => handlePress(y, x)}/>
     }
 
-    const renderGrids = (index: number, ggrids: boolean[]) => {
+    const renderGrids = (xGrids: GridProps[], yIndex: number) => {
         return (
-            <View style={styles.rowContainer}>
-                {renderGrid(1, 1)}
-                {renderGrid(1, 2)}
-                {renderGrid(1, 3)}
-                {renderGrid(1, 4)}
-                {renderGrid(1, 5)}
-                {renderGrid(1, 6)}
-            </View>
+            <View style={styles.rowContainer}>{
+                xGrids.map((grid, xIndex) => {
+                    return <Grid opened={grid.isOpend} isBomb={grid.isBomb} onPress={() => handlePress(yIndex, xIndex)}/>
+                })
+            }</View>
         )
     }
 
     return (
-        <View style={styles.container}>
-            {
-                grids.bombs.map((ggrid, index) => {
-                    return renderGrids(index, ggrid)
-                })
-            }
-        </View>
+        <View style={styles.container}>{
+            grids.bombs.map((xGrids, yIndex) => {
+                return renderGrids(xGrids, yIndex)
+            })
+        }</View>
     )
 };
 
@@ -77,4 +79,3 @@ const styles = StyleSheet.create({
 })
 
 export default Map;
-
